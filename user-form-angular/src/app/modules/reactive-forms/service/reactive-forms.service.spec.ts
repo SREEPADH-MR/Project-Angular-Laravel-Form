@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UserFormService } from './user-form.service';
+import { ReactiveFormsService } from './reactive-forms.service';
 
-describe('UserFormService', () => {
-  let service: UserFormService;
+describe('ReactiveFormsService', () => {
+  let service: ReactiveFormsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(UserFormService);
+    service = TestBed.inject(ReactiveFormsService);
   });
 
   it('should be created', () => {
