@@ -45,8 +45,8 @@
         </div>
         <div class="form-group col-md-4">
             <label for="district">District</label>
-            <select id="district" class="form-control">
-                <option selected>Choose</option>
+            <select id="district" class="form-control" required>
+                <option value="">Choose</option>
                 <option value="Thrissur">Thrissur</option>
                 <option value="Ernakulam">Ernakulam</option>
                 <option value="Palakkad">Palakkad</option>
@@ -69,6 +69,13 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" placeholder="Enter Password" required>
         </div>
+    </div>
+
+    <hr>
+
+    <div class="form-group">
+        <label for="about">About</label>
+        <textarea class="form-control" id="about" placeholder="Enter About" required></textarea>
     </div>
 
     <hr>

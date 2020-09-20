@@ -1,20 +1,20 @@
 <!-- Default form register -->
-<form class="text-left border border-light p-5" enctype="multipart/form-data">
-
-    <hr>
+<form #userForm="ngForm" (ngSubmit)="submit(userForm)" class="text-left border border-light p-5"
+    enctype="multipart/form-data">
 
     <div class="form-row">
         <div class="form-group col-md-4">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Name" required>
+            <input type="text" class="form-control" name="name" ngModel id="name" placeholder="Enter Name"
+                required>
         </div>
         <div class="form-group col-md-4">
-            <label for="image">Profile Photo</label>
-            <input type="file" class="form-control" id="image" required>
+            <label for="profileImage">Profile Photo</label>
+            <input type="file" class="form-control" name="profileImage" ngModel id="profileImage" required>
         </div>
         <div class="form-group col-md-4">
             <label for="dob">DOB</label>
-            <input type="date" class="form-control" id="dob" required>
+            <input type="date" class="form-control" name="dob" ngModel id="dob" required>
         </div>
     </div>
 
@@ -24,29 +24,29 @@
         <div class="form-group col-md-4">
             <label>Gender</label><br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="male" value="Male">
+                <input class="form-check-input" name="gender" ngModel type="radio" id="male" value="Male">
                 <label class="form-check-label" for="male">Male</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="female" value="Female">
+                <input class="form-check-input" name="gender" ngModel type="radio" id="female" value="Female">
                 <label class="form-check-label" for="female">Female</label>
             </div>
         </div>
         <div class="form-group col-md-4">
             <label>Qualification</label><br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="ug" value="UG">
+                <input class="form-check-input" name="qualification" ngModel type="checkbox" id="ug" value="UG">
                 <label class="form-check-label" for="ug">UG</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="pg" value="PG">
+                <input class="form-check-input" name="qualification" ngModel type="checkbox" id="pg" value="PG">
                 <label class="form-check-label" for="pg">PG</label>
             </div>
         </div>
         <div class="form-group col-md-4">
             <label for="district">District</label>
-            <select id="district" class="form-control">
-                <option selected>Choose</option>
+            <select id="district" name="district" ngModel class="form-control" required>
+                <option value="">Choose</option>
                 <option value="Thrissur">Thrissur</option>
                 <option value="Ernakulam">Ernakulam</option>
                 <option value="Palakkad">Palakkad</option>
@@ -59,16 +59,23 @@
     <div class="form-row">
         <div class="form-group col-md-4">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
+            <input type="email" class="form-control" name="email" ngModel id="email" placeholder="Enter Email" required>
         </div>
         <div class="form-group col-md-4">
             <label for="number">Number</label>
-            <input type="number" class="form-control" id="number" placeholder="Enter Number" required>
+            <input type="number" class="form-control" name="number" ngModel id="number" placeholder="Enter Number" required>
         </div>
         <div class="form-group col-md-4">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter Password" required>
+            <input type="password" class="form-control" name="password" ngModel id="password" placeholder="Enter Password" required>
         </div>
+    </div>
+
+    <hr>
+
+    <div class="form-group">
+        <label for="about">About</label>
+        <textarea class="form-control" id="about" name="about" ngModel placeholder="Enter About" required></textarea>
     </div>
 
     <hr>
