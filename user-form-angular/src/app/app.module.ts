@@ -7,6 +7,7 @@ import { TemplateDrivenFormsModule } from './modules/template-driven-forms/templ
 import { ModelDrivenFormsModule } from './modules/model-driven-forms/model-driven-forms.module';
 import { from } from 'rxjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule  } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     TemplateDrivenFormsModule,
-    ModelDrivenFormsModule
+    ModelDrivenFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

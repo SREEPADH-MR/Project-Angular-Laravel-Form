@@ -1,20 +1,19 @@
 <!-- Default form register -->
-<form class="text-left border border-light p-5" enctype="multipart/form-data">
-
-    <hr>
+<form [formGroup]="userForm" (ngSubmit)="submit()" class="text-left border border-light p-5"
+    enctype="multipart/form-data">
 
     <div class="form-row">
         <div class="form-group col-md-4">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Name" required>
+            <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter Name" required>
         </div>
         <div class="form-group col-md-4">
-            <label for="image">Profile Photo</label>
-            <input type="file" class="form-control" id="image" required>
+            <label for="profileImage">Profile Photo</label>
+            <input (change)="profileImage($event);" type="file" class="form-control" id="profileImage" required>
         </div>
         <div class="form-group col-md-4">
             <label for="dob">DOB</label>
-            <input type="date" class="form-control" id="dob" required>
+            <input formControlName="dob" type="date" class="form-control" id="dob" required>
         </div>
     </div>
 
@@ -24,28 +23,26 @@
         <div class="form-group col-md-4">
             <label>Gender</label><br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="male" value="Male">
+                <input formControlName="gender" class="form-check-input" type="radio" id="male" value="Male">
                 <label class="form-check-label" for="male">Male</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="female" value="Female">
+                <input formControlName="gender" class="form-check-input" type="radio" id="female" value="Female">
                 <label class="form-check-label" for="female">Female</label>
             </div>
         </div>
         <div class="form-group col-md-4">
             <label>Qualification</label><br>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="ug" value="UG">
-                <label class="form-check-label" for="ug">UG</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="pg" value="PG">
-                <label class="form-check-label" for="pg">PG</label>
+            <div *ngFor="let data of checkboxData; let i=index" style="float:left;">
+                <label>
+                    <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)" />
+                    {{data.name}}
+                </label>&nbsp;&nbsp;
             </div>
         </div>
         <div class="form-group col-md-4">
             <label for="district">District</label>
-            <select id="district" class="form-control" required>
+            <select formControlName="district" id="district" class="form-control" required>
                 <option value="">Choose</option>
                 <option value="Thrissur">Thrissur</option>
                 <option value="Ernakulam">Ernakulam</option>
@@ -59,15 +56,18 @@
     <div class="form-row">
         <div class="form-group col-md-4">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
+            <input formControlName="email" type="email" class="form-control" id="email" placeholder="Enter Email"
+                required>
         </div>
         <div class="form-group col-md-4">
             <label for="number">Number</label>
-            <input type="number" class="form-control" id="number" placeholder="Enter Number" required>
+            <input formControlName="number" type="text" class="form-control" id="number" placeholder="Enter Number"
+                required>
         </div>
         <div class="form-group col-md-4">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter Password" required>
+            <input formControlName="password" type="password" class="form-control" id="password"
+                placeholder="Enter Password" required>
         </div>
     </div>
 
@@ -75,7 +75,7 @@
 
     <div class="form-group">
         <label for="about">About</label>
-        <textarea class="form-control" id="about" placeholder="Enter About" required></textarea>
+        <textarea formControlName="about" class="form-control" id="about" placeholder="Enter About" required></textarea>
     </div>
 
     <hr>
@@ -85,11 +85,9 @@
             <!-- <button type="submit" class="btn btn-primary">Sign in</button> -->
         </div>
         <div class="form-group col-md-6">
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-outline-success">Register</button>
         </div>
     </div>
-
-    <hr>
 
 </form>
 <!-- Default form register -->
