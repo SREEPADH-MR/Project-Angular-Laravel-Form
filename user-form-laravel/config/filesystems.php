@@ -65,12 +65,19 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
-        'uploads' => [
+        'fileUploadToPublic' => [
             'driver' => 'local',
-            'root' => public_path('images'),
+            'root' => public_path(),
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
-        ]
+        ],
+
+        'fileUploadToStorage' => [
+            'driver' => 'local',
+            'root' => storage_path(),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+        ],
 
     ],
 
