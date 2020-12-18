@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('ModelDrivenForm')->group(function () {
 
     Route::post('create', 'ModelDrivenFormController@create');
+    Route::get('read/{userId}', 'ModelDrivenFormController@read');
 });

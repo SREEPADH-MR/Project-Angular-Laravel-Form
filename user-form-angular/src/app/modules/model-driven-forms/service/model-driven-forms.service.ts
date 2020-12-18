@@ -21,4 +21,14 @@ export class ModelDrivenFormsService {
       });
     });
   }
+
+  read(id): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.baseUrl + 'read/' + `${id}`).subscribe((data) => {
+        resolve(data);
+      }, (error) => {
+        reject(error);
+      });
+    });
+  }
 }

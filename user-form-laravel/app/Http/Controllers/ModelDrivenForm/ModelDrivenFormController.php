@@ -55,4 +55,10 @@ class ModelDrivenFormController extends Controller
 
         return response()->json($response);
     }
+
+    public function read($id)
+    {
+        // return User::find($id);
+        return User::where('id', $id)->first();
+    }
 }
